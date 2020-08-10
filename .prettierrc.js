@@ -1,7 +1,8 @@
 // prettier.config.js or .prettierrc.js
 module.exports = {
-    trailingComma: 'all',
-    tabWidth: 4,
-    semi: true,
-    singleQuote: true,
-}
+  trailingComma: 'all',
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+  arrowParens: 'always',
+};
