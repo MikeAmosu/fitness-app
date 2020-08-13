@@ -16,6 +16,7 @@ module.exports = {
     quotes: ['error', 'single', { avoidEscape: false, allowTemplateLiterals: true }],
     'spaced-comment': [2, 'never', { exceptions: ['-'], markers: ['/', '/-'] }],
     'dot-notation': [2, { allowKeywords: true }],
+    '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'always' }],
   },
   overrides: [
     {
