@@ -11,10 +11,11 @@
           <b-col md="8" offset-md="2" sm="12" align-h="end"> -->
       <div class="grid-container">
         <div class="grid-item-back-top-left">
-          <img src="http://placeimg.com/640/360/any" class="img-dimensions" />
+          <div class="parallax"></div>
+          <!-- <img src="http://placeimg.com/640/360/any" class="img-dimensions" /> -->
         </div>
         <!-- <div class="grid-bottom"></div> -->
-        <div class="grid-item-front-bottom-right info-box"></div>
+        <div class="grid-item-front-bottom-right info-box" v-html="message"></div>
       </div>
       <!-- </b-col>
           <b-col md="2">Three of three columns</b-col>
@@ -31,7 +32,19 @@ const stackedBoxes = Vue.extend({
   name: 'stacked-boxes' as string,
   data() {
     const counter = 0;
-    return { counter };
+    const message = `<h2>Hi, I’m Sheldon</h2> 
+<h3>Certified Fitness Trainer and Personal Coach</h3> 
+ <br>
+<p>I'm a paragraph. Click here to add your own text and edit me. \
+It’s easy. Just click “Edit Text” or double click me to add your \
+own content and make changes to the font. I’m a great place for you \
+to tell a story and let your users know a little more about you.</p>
+<br>
+<p>I'm a paragraph. Click here to add your own text and edit me. \
+It’s easy. Just click “Edit Text” or double click me to add your \
+own content and make changes to the font. I’m a great place for you \
+to tell a story and let your users know a little more about you.</p>`;
+    return { counter, message };
   },
 });
 
@@ -45,14 +58,23 @@ export default stackedBoxes;
 
 /* Large devices (laptops/desktops, 992px  and DOWN) */
 @media only screen and (max-width: 992px) {
+  .grid-item-back-top-left {
+    min-height: 200px;
+  }
+
   .grid-item-front-bottom-right {
     min-height: 200px;
   }
 
   .grid-container {
     grid-template-columns: 1f;
-    grid-template-rows: minmax(0, 1fr);
+    grid-template-rows: auto auto;
     min-height: auto;
+  }
+
+  .parallax {
+    background-attachment: scroll;
+    width: 100%;
   }
 }
 
@@ -66,12 +88,19 @@ export default stackedBoxes;
   .grid-item-front-bottom-right {
     grid-column: 7 / 13;
     grid-row: 2 / 5;
+    min-height: 400px;
   }
 
   .grid-container {
     min-height: 500px;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr 1fr 1fr auto;
+  }
+
+  .parallax {
+    background-attachment: fixed;
+    height: 500px;
+    width: auto;
   }
 }
 
@@ -95,18 +124,6 @@ export default stackedBoxes;
   box-sizing: border-box;
 }
 
-.grid-item-back-top-left {
-  /* position: relative;
-  justify-self: start;
-  align-self: start; */
-}
-
-.grid-item-front-bottom-right {
-  /* position: relative; */
-  /* justify-self: start;
-  align-self: start; */
-}
-
 .grid-bottom {
   height: 50px;
 }
@@ -114,5 +131,18 @@ export default stackedBoxes;
 .info-box {
   background-color: aquamarine;
   border: 1px solid darkblue;
+}
+
+.parallax {
+  background-image: url('http://placeimg.com/640/360/any');
+
+  /* Full height */
+  min-height: 400px;
+
+  /* Create the parallax scrolling effect */
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
