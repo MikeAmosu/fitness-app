@@ -51,8 +51,4 @@ const carousel = Vue.extend({
 export default carousel;
 </script>
 
-<style scoped>
-.jumbotron {
-  margin-bottom: none !important;
-}
-</style>
+<style scoped></style>

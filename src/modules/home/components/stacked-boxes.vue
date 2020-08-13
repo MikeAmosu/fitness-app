@@ -11,11 +11,10 @@
           <b-col md="8" offset-md="2" sm="12" align-h="end"> -->
       <div class="grid-container">
         <div class="grid-item-back-top-left">
-          <img src="http://placeimg.com/640/360/any" class="back-img-dimensions" />
+          <img src="http://placeimg.com/640/360/any" class="img-dimensions" />
         </div>
-        <div class="grid-item-front-bottom-right">
-          <img src="https://dummyimage.com/640x360/fff/aaa" class="front-img-dimensions" />
-        </div>
+        <!-- <div class="grid-bottom"></div> -->
+        <div class="grid-item-front-bottom-right info-box"></div>
       </div>
       <!-- </b-col>
           <b-col md="2">Three of three columns</b-col>
@@ -46,56 +45,39 @@ export default stackedBoxes;
 
 /* Large devices (laptops/desktops, 992px  and DOWN) */
 @media only screen and (max-width: 992px) {
-  .back-img-dimensions {
-    width: 100%;
-    height: auto;
-  }
-
-  .front-img-dimensions {
-    width: 100%;
-    height: 100%;
-  }
-
-  .grid-item-back-top-left {
-    left: 0px;
-  }
-
   .grid-item-front-bottom-right {
-    top: 0px;
+    min-height: 200px;
   }
 
   .grid-container {
+    grid-template-columns: 1f;
+    grid-template-rows: minmax(0, 1fr);
     min-height: auto;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .back-img-dimensions {
-    width: 766px;
-    height: 500px;
-  }
-
-  .front-img-dimensions {
-    width: 600px;
-    height: 500px;
-  }
-
   .grid-item-back-top-left {
-    left: 15px;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-column: 1 / 10;
+    grid-row: 1 / 4;
   }
 
   .grid-item-front-bottom-right {
-    top: 100px;
-    grid-area: 1 / 1 / 2 / 2;
-    margin-left: auto;
-    margin-right: 0;
+    grid-column: 7 / 13;
+    grid-row: 2 / 5;
   }
 
   .grid-container {
     min-height: 500px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr auto;
   }
+}
+
+.img-dimensions {
+  width: 100%;
+  height: auto;
 }
 
 .jumbotron-colour {
@@ -107,25 +89,30 @@ export default stackedBoxes;
 }
 
 .grid-container {
-  position: static;
   display: grid;
-  height: auto;
   width: 100%;
-  grid-template-rows: min-content;
-  grid-template-columns: 100%;
   padding-bottom: 0px;
   box-sizing: border-box;
 }
 
 .grid-item-back-top-left {
-  position: relative;
+  /* position: relative;
   justify-self: start;
-  align-self: start;
+  align-self: start; */
 }
 
 .grid-item-front-bottom-right {
-  position: relative;
-  justify-self: start;
-  align-self: start;
+  /* position: relative; */
+  /* justify-self: start;
+  align-self: start; */
+}
+
+.grid-bottom {
+  height: 50px;
+}
+
+.info-box {
+  background-color: aquamarine;
+  border: 1px solid darkblue;
 }
 </style>

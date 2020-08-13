@@ -31,4 +31,8 @@ const home = Vue.extend({
 export default home;
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.jumbotron {
+  margin-bottom: 0px !important;
+}
+</style>
